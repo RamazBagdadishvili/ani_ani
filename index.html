@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ჩემი ფოტო კოლაჟი</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the collage and overall page aesthetics */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* A light, neutral background */
+        }
+        .collage-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-auto-rows: 250px;
+            grid-auto-flow: dense; /* This helps fill in gaps */
+            gap: 1rem;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+        .collage-item {
+            overflow: hidden;
+            border-radius: 1rem; /* Softer, modern rounded corners */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .collage-item:hover {
+            transform: scale(1.03); /* Slight zoom effect on hover */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2), 0 10px 10px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        .collage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            display: block;
+        }
+        /* Spanning items for a dynamic layout */
+        .item-1 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .item-2 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+        .item-3 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+        .item-4 {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+        .item-5 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .collage-container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-auto-rows: 200px;
+            }
+            /* Reset spans for a simpler layout on smaller screens */
+            .item-1, .item-2, .item-3, .item-4, .item-5 {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+             .item-1 {
+                grid-row: span 2;
+            }
+        }
+         @media (max-width: 480px) {
+            .collage-container {
+                grid-template-columns: 1fr; /* Single column on very small screens */
+                grid-auto-rows: 250px;
+            }
+             .item-1, .item-4 {
+                grid-column: span 1;
+                grid-row: span 2;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <header class="text-center py-8 md:py-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 tracking-tight">ჩემი გალერეა</h1>
+        <p class="text-lg text-gray-600 mt-2">მოგონებების კოლექცია</p>
+    </header>
+
+    <main>
+        <!-- The collage container where images will be displayed -->
+        <div class="collage-container">
+            <!-- Each div is an item in the collage grid. The classes 'item-*' define their size and position. -->
+            <div class="collage-item item-1">
+                <img src="/photos/441871059_416403371279477_6759669288860034704_n.jpg" alt="გოგონა მზის ჩასვლისას სანაპიროზე" onerror="this.onerror=null;this.src='https://placehold.co/600x400/d1d5db/374151?text=ფოტო+1';">
+            </div>
+            <div class="collage-item item-2">
+                <img src="/photos/473066165_582648431321636_5933322584961691744_n.jpg" alt="გოგონა პარკში ღამით" onerror="this.onerror=null;this.src='https://placehold.co/400x600/d1d5db/374151?text=ფოტო+2';">
+            </div>
+            <div class="collage-item item-3">
+                <img src="/photos/473691839_585170741069405_2870335670122667570_n.jpg" alt="გოგონას პროფილი მოღრუბლული ცის ფონზე" onerror="this.onerror=null;this.src='https://placehold.co/400x400/d1d5db/374151?text=ფოტო+3';">
+            </div>
+            <div class="collage-item item-4">
+                <img src="photos/474064198_588358097417336_484854431232474838_n.jpg" alt="გოგონა ზის მდინარის პირას ქალაქის ფონზე" onerror="this.onerror=null;this.src='https://placehold.co/600x300/d1d5db/374151?text=ფოტო+4';">
+            </div>
+            <div class="collage-item item-5">
+                <img src="/photos/481998697_652070000837689_4465436767142447727_n.jpg" alt="გოგონა შავი ჰუდით, რომელსაც აწერია Balencia" onerror="this.onerror=null;this.src='https://placehold.co/400x400/d1d5db/374151?text=ფოტო+5';">
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-6">
+        <p class="text-gray-500">&copy; 2025 ჩემი ფოტო კოლაჟი. ყველა უფლება დაცულია.</p>
+    </footer>
+
+</body>
+</html>
